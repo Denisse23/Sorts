@@ -149,7 +149,7 @@ public class Sort {
             }
         }
         long endTime = System.nanoTime();
-        bubbleSortList.add("Nanosegundos: "+(endTime - startTime));
+        bubbleSortList.add(endTime - startTime+"");
     }
     
     
@@ -164,7 +164,7 @@ public class Sort {
             swap(a, i, min);
         }
         long endTime = System.nanoTime();
-        selectionSortList.add( "Nanosegundos: "+(endTime - startTime));
+        selectionSortList.add(endTime - startTime+"");
     }
     public  void insertSort(int []a){
         long startTime = System.nanoTime();
@@ -176,14 +176,14 @@ public class Sort {
             }
         }
         long endTime = System.nanoTime();
-        insertSortList.add("Nanosegundos: "+(endTime - startTime));
+        insertSortList.add(endTime - startTime+"");
     }
     
     public  void mergeSort(int []A){
         long startTime = System.nanoTime();
         mergeSortIn(A, A.length);
         long endTime = System.nanoTime();
-        mergeSortList.add("Nanosegundos: "+(endTime - startTime));
+        mergeSortList.add(endTime - startTime+"");
     }
     
     private void mergeSortIn(int A[], int n ){
@@ -221,7 +221,7 @@ public class Sort {
         long startTime = System.nanoTime();
         quickSortIn(a, 0, a.length-1);
         long endTime = System.nanoTime();
-        quickSortList.add("Nanosegundos: "+(endTime - startTime));
+        quickSortList.add(endTime - startTime+"");
     }
     
     private void quickSortIn(int []a, int izq, int der){
@@ -258,7 +258,7 @@ public class Sort {
             maxheap(a, 0);
         }
         long endTime = System.nanoTime();
-        heapSortList.add("Nanosegundos: "+(endTime - startTime));
+        heapSortList.add(endTime - startTime+"");
     }
     
     private void heapify(int []a){
@@ -303,7 +303,7 @@ public class Sort {
             exp *= 10;        
         }
         long endTime = System.nanoTime();
-        radixSortList.add("Nanosegundos: "+(endTime - startTime));
+        radixSortList.add(endTime - startTime+"");
     }
     
     private void copiarParteDeA(int []A, int []B, int a, int b){

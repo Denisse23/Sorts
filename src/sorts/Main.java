@@ -20,25 +20,28 @@ public class Main {
     
    
     public static void main(String[] args) {
-        int tamano = 10;
+        int tamano =10;
         int [] arreglo = new int[tamano];
         Sort sort = new Sort();
-        for(int i=0; i<10; i++){
-            while(sort.getBubbleSortList().size()<i
-                  || sort.getSelectionSortList().size()<i 
-                  || sort.getInsertSortList().size()<i
-                  || sort.getMergeSortList().size()<i
-                  || sort.getQuickSortList().size()<i
-                  || sort.getHeapSortList().size()<i
-                  || sort.getRadixSortList().size()<i){System.out.print("");}
+        int veces =10;
+        for(int i=0; i<veces; i++){
+            while(sort.getBubbleSortList().size()<i 
+                   ||sort.getSelectionSortList().size()<i 
+                   ||sort.getInsertSortList().size()<i
+                   ||sort.getMergeSortList().size()<i
+                   ||sort.getQuickSortList().size()<i
+                   ||sort.getHeapSortList().size()<i
+                   ||sort.getRadixSortList().size()<i
+                    ){System.out.print("");}
             llenarArreglo(arreglo);
+            
             Runnable bubbleSortR = new Runnable(){
                 public void run(){
                     try{
                         int [] bubbleSortArreglo = new int[tamano];
                         copiarArreglo(arreglo,bubbleSortArreglo);
                         sort.bubbleSort(bubbleSortArreglo);
-                        if(sort.getBubbleSortList().size()==10){
+                        if(sort.getBubbleSortList().size()==veces){
                             sort.setBubbleSortVar(true);
                         }
                             
@@ -56,7 +59,7 @@ public class Main {
                         int [] selectionSortArreglo = new int[tamano];
                         copiarArreglo(arreglo, selectionSortArreglo);
                         sort.selectionSort(selectionSortArreglo);
-                        if(sort.getSelectionSortList().size()==10){
+                        if(sort.getSelectionSortList().size()==veces){
                             sort.setSelectionSortVar(true);
                         }
                             
@@ -74,7 +77,7 @@ public class Main {
                         int [] insertSortArreglo = new int[tamano];
                         copiarArreglo(arreglo, insertSortArreglo);
                         sort.insertSort(insertSortArreglo);
-                        if(sort.getInsertSortList().size()==10){
+                        if(sort.getInsertSortList().size()==veces){
                             sort.setInsertSortVar(true);
                         }
                     }catch(Exception x){
@@ -91,7 +94,7 @@ public class Main {
                         int [] mergeSortArreglo = new int[tamano];
                         copiarArreglo(arreglo, mergeSortArreglo);
                         sort.mergeSort(mergeSortArreglo);
-                        if(sort.getMergeSortList().size()==10){
+                        if(sort.getMergeSortList().size()==veces){
                             sort.setMergeSortVar(true);
                         }
                     }catch(Exception x){
@@ -99,6 +102,7 @@ public class Main {
                     }
                 }
             };
+            
             Thread mergeSortthread = new Thread(mergeSortR);
             mergeSortthread.start();
             
@@ -108,7 +112,7 @@ public class Main {
                         int [] quickSortArreglo = new int[tamano];
                         copiarArreglo(arreglo, quickSortArreglo);
                         sort.quickSort(quickSortArreglo);
-                        if(sort.getQuickSortList().size()==10){
+                        if(sort.getQuickSortList().size()==veces){
                             sort.setQuickSortVar(true);
                         }
                     }catch(Exception x){
@@ -125,7 +129,7 @@ public class Main {
                         int [] heapSortArreglo = new int[tamano];
                         copiarArreglo(arreglo, heapSortArreglo);
                         sort.heapSort(heapSortArreglo);
-                        if(sort.getHeapSortList().size()==10){
+                        if(sort.getHeapSortList().size()==veces){
                             sort.setHeapSortVar(true);
                         }
                     }catch(Exception x){
@@ -142,7 +146,7 @@ public class Main {
                         int [] radixSortArreglo = new int[tamano];
                         copiarArreglo(arreglo, radixSortArreglo);
                         sort.radixSort(radixSortArreglo);
-                        if(sort.getRadixSortList().size()==10){
+                        if(sort.getRadixSortList().size()==veces){
                             sort.setRadixSortVar(true);
                         }
                     }catch(Exception x){
@@ -156,12 +160,14 @@ public class Main {
         }
         
         while(sort.isBubbleSortVar()==false ||
-              sort.isSelectionSortVar()==false || 
-              sort.isInsertSortVar()==false ||
-              sort.isMergeSortVar()==false ||
+              sort.isSelectionSortVar()==false ||
+              sort.isInsertSortVar()==false || 
+              sort.isMergeSortVar()==false  ||
               sort.isQuickSortVar()==false ||
               sort.isHeapSortVar()==false ||
-              sort.isRadixSortVar()==false  ){System.out.print("");}
+              sort.isRadixSortVar()==false  
+                ){System.out.print("");}
+        System.out.println("Nanosegundos------------ Nº veces: "+veces);
         imprimirListaResultados(sort.getBubbleSortList(), "Bubble Sort", tamano);
         imprimirListaResultados(sort.getSelectionSortList(), "Selection Sort", tamano);
         imprimirListaResultados(sort.getInsertSortList(), "Insert Sort", tamano);
